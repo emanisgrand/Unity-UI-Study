@@ -16,11 +16,16 @@ public class ToggleTest : MonoBehaviour
     {
         toggleGroupinstance = GetComponent<ToggleGroup>();    
         Debug.Log("Linq: First selected " + currentSelection.name);
+
+        //activate the third item in the toggle group
+        SelectToggle(0);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public void SelectToggle(int id){
+        //a list of all the ids in the toggle group
+        var toggles = toggleGroupinstance.GetComponentsInChildren<Toggle>();
+
+        toggles[id].isOn = true;
+
     }
 }
